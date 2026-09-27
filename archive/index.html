@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Archive: StageSignals Daily Readout</title><meta name="description" content="Every day the readout has been built.">
+<style>:root{--bg:#F6F5F1;--ink:#151B2C;--mute:#5A6479;--line:#D9D6CC;--panel:#FFFFFF;--panel-new:#FBF3EA;--copper:#B96F2A;--on-copper:#FFFFFF;--green:#1F8A66;--amber:#B57F12;--grey:#5F6D89;--bar:#8F9BB5;--grid:#D9D6CC55;--sans:'Segoe UI',system-ui,-apple-system,sans-serif;--mono:Consolas,'Cascadia Mono',ui-monospace,monospace;--r-chip:6px;--r-panel:10px;--r-card:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0C1424;--ink:#E8ECF4;--mute:#8F9CB6;--line:#263352;--panel:#141D33;--panel-new:#19243F;--copper:#D98E4A;--on-copper:#1A1206;--green:#3FB68B;--amber:#E0A73C;--grey:#7C8BA6;--bar:#5B6B8C;--grid:#26335233}}
+:root[data-theme=dark]{--bg:#0C1424;--ink:#E8ECF4;--mute:#8F9CB6;--line:#263352;--panel:#141D33;--panel-new:#19243F;--copper:#D98E4A;--on-copper:#1A1206;--green:#3FB68B;--amber:#E0A73C;--grey:#7C8BA6;--bar:#5B6B8C;--grid:#26335233}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 var(--sans);-webkit-text-size-adjust:100%}
+.mono{font-family:var(--mono)}
+main,.wrap{max-width:860px;margin:0 auto;padding:28px 16px 80px}
+main.wide{max-width:1180px}
+a{color:var(--copper)}
+/* type */
+h1{font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:26px;margin:2em 0 .4em;letter-spacing:-.01em}
+h3{font-size:22px;margin:0 0 .2em}
+.cap{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.lead{font-size:20px}
+.small,.mute{color:var(--mute)}.small{font-size:14px}
+/* brand and navigation */
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px}.brand b{color:var(--copper)}
+.topnav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 0;font-size:15px}
+.topnav a{color:var(--mute);text-decoration:none}.topnav a[aria-current]{color:var(--ink);border-bottom:2px solid var(--copper)}
+/* surfaces */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 22px;margin:18px 0}
+.panel{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:var(--r-panel);padding:16px 20px}
+.panel.new{border-left-color:var(--copper);background:var(--panel-new)}
+.note{border-left:5px solid var(--copper);padding:6px 14px;margin:18px 0;background:var(--panel)}
+/* stage ladder and chips */
+.ladder{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 12px}
+.chip{display:inline-block;border:1.5px solid var(--line);border-radius:var(--r-chip);padding:2px 9px;font-size:12px;letter-spacing:.06em;font-weight:700;color:var(--mute)}
+.chip.on{background:var(--copper);border-color:var(--copper);color:var(--on-copper)}
+.chip.done{border-color:var(--copper);color:var(--copper)}
+/* evidence badges: what we could check */
+.badge{display:inline-block;border-radius:5px;padding:2px 9px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff}
+.badge.filing{background:var(--green)}.badge.nomatch{background:var(--grey)}.badge.media{background:var(--amber)}
+/* key figures */
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.fact{border:1px solid var(--line);border-radius:8px;padding:8px 12px;min-width:150px}
+.fact .n{font-size:20px;font-weight:700;font-family:var(--mono)}.fact .l{font-size:13px;color:var(--mute)}
+.lab{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);font-weight:700;margin:14px 0 2px}
+/* tables and bars */
+table{border-collapse:collapse;width:100%}
+td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;font-size:16px}
+th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.bar{height:14px;background:var(--bar);border-radius:3px;min-width:4px}.bar.early{background:var(--copper)}
+/* one-line rows that open (no JavaScript): the default way to list many items */
+.rows{margin:10px 0}
+.row{border-bottom:1px solid var(--line)}
+.row>details>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 4px}
+.row>details>summary::-webkit-details-marker{display:none}
+.row>details>summary:hover{background:var(--panel)}
+.row .body{padding:4px 4px 14px 4px;color:var(--mute);font-size:16px}
+.more>summary{cursor:pointer;color:var(--copper);font-weight:600;padding:10px 4px;list-style:none}
+.more>summary::-webkit-details-marker{display:none}
+.more[open]>summary{display:none}
+/* freshness and provenance */
+.stamp{font-size:13px;color:var(--mute);font-family:var(--mono)}
+.stamp.stale{color:var(--amber)}
+.src{font-size:14px;color:var(--mute)}
+/* site chrome: header nav, footer, archive list (portal_site.py) */
+.pagehead{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;padding:16px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.pagehead .topnav{margin-left:auto}
+.badge.green{background:var(--green)}.badge.grey{background:var(--grey)}.badge.amber{background:var(--amber)}
+footer.sitefoot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer.sitefoot a{color:var(--mute)}
+.daylist{list-style:none;padding:0;margin:0}
+.daylist li{border-bottom:1px solid var(--line);padding:14px 4px}
+.daylist a{font-size:20px;font-weight:700;text-decoration:none;color:var(--ink)}
+.daylist .meta{color:var(--mute);font-size:14px;margin-top:4px}
+.cal-month{display:inline-block;vertical-align:top;margin:0 28px 28px 0}
+table.calendar{border-collapse:collapse}
+table.calendar th{color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;padding:4px 8px;text-align:center}
+table.calendar td{padding:2px;text-align:center;vertical-align:middle}
+.cal-day{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;font-size:15px;color:var(--mute);text-decoration:none}
+a.cal-built{color:var(--ink);font-weight:700;background:var(--panel);border:1.5px solid var(--copper)}
+a.cal-built:hover{background:var(--copper);color:var(--on-copper)}
+.signup-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.signup-form input{flex:1 1 240px;min-width:0;padding:10px 14px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:16px var(--sans)}
+.signup-form input:focus{outline:2px solid var(--copper);outline-offset:1px}
+.signup-form button{padding:10px 20px;border:none;border-radius:8px;background:var(--copper);color:var(--on-copper);font:600 16px var(--sans);cursor:pointer;white-space:nowrap}
+.signup-form button:hover{opacity:.9}
+@media (max-width:640px){body{font-size:17px}.row>details>summary{grid-template-columns:1fr auto}.fact{min-width:130px}}
+@media print{body{background:#fff;color:#000}.more>summary{display:none}}
+</style></head><body><main class="wide">
+<header class='pagehead'><a href='../' class='brand' style='text-decoration:none;color:inherit'><svg width='28' height='28' viewBox='0 0 48 48'><rect x='5' y='28' width='10' height='15' rx='2' fill='var(--copper)'/><rect x='19' y='18' width='10' height='25' rx='2' fill='var(--copper)'/><rect x='33' y='6' width='10' height='37' rx='2' fill='var(--copper)'/></svg><span>Stage<b>Signals</b></span></a><span class='cap' style='margin-left:10px'>Daily Readout</span><nav class='topnav'><a href='../'>Today</a><a href='../archive/' aria-current=page>Archive</a><a href='../method/'>Method</a></nav></header>
+<h1>Archive</h1><p class='lead'>Every day the readout has been built. Pick a date, or scan the list below.</p><div class='cal-month'><div class='cap' style='margin:18px 0 8px'>September 2026</div><table class='calendar'><thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead><tbody><tr><td class='cal-out'></td><td><span class='cal-day'>1</span></td><td><span class='cal-day'>2</span></td><td><span class='cal-day'>3</span></td><td><span class='cal-day'>4</span></td><td><span class='cal-day'>5</span></td><td><span class='cal-day'>6</span></td></tr><tr><td><span class='cal-day'>7</span></td><td><span class='cal-day'>8</span></td><td><span class='cal-day'>9</span></td><td><span class='cal-day'>10</span></td><td><span class='cal-day'>11</span></td><td><span class='cal-day'>12</span></td><td><span class='cal-day'>13</span></td></tr><tr><td><span class='cal-day'>14</span></td><td><span class='cal-day'>15</span></td><td><span class='cal-day'>16</span></td><td><span class='cal-day'>17</span></td><td><span class='cal-day'>18</span></td><td><span class='cal-day'>19</span></td><td><span class='cal-day'>20</span></td></tr><tr><td><span class='cal-day'>21</span></td><td><span class='cal-day'>22</span></td><td><span class='cal-day'>23</span></td><td><span class='cal-day'>24</span></td><td><span class='cal-day'>25</span></td><td><span class='cal-day'>26</span></td><td><a class='cal-day cal-built' href='../2026-09-27/'>27</a></td></tr><tr><td><span class='cal-day'>28</span></td><td><span class='cal-day'>29</span></td><td><span class='cal-day'>30</span></td><td class='cal-out'></td><td class='cal-out'></td><td class='cal-out'></td><td class='cal-out'></td></tr></tbody></table></div><h2 style='margin-top:44px'>All days</h2><ul class='daylist'><li><a href='../2026-09-27/'>Sunday 27 September 2026</a><div class='meta'>5 headlines · ₹1.07 lakh cr · 3 filing-matched</div></li></ul>
+<div class='panel new' style='margin:28px 0'>
+<div class='lab' style='margin-top:0'>Get more, earlier</div>
+<p style='margin:.3em 0 12px'>We're building a deeper, faster version of this for people who can act on it — more of the daily ledger, not just the five headlines, sent before the video goes out. No price yet, no charge yet: leave your email and we'll let you know when it's ready.</p>
+<form id='su6940' class='signup-form' onsubmit='return window.__stageSignup(event, "su6940")' action='http://192.168.1.6:5678/webhook/stagesignals-signup' method='POST'>
+<input type='email' name='email' required placeholder='you@company.com' aria-label='Email address'>
+<button type='submit'>Notify me</button>
+</form>
+<p id='su6940-msg' class='small' style='margin:8px 0 0;min-height:1.2em'></p>
+</div>
+<script>window.__stageSignup=function(ev,id){ev.preventDefault();var f=document.getElementById(id),m=document.getElementById(id+'-msg'),email=f.email.value;
+fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
+.then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+.then(function(res){if(res.ok&&res.j.ok){m.textContent='Thanks — you are on the list.';m.style.color='var(--copper)';f.style.display='none'}else{m.textContent='That did not look like a valid email — try again.';m.style.color='var(--amber)'}})
+.catch(function(){m.textContent='Could not reach the signup service right now — try again shortly.';m.style.color='var(--amber)'});
+return false}</script>
+<footer class="sitefoot"><p>StageSignals is a working name. Our reading of public reports and company filings; not investment advice.
+Every claim is checked against the article or filing it came from; where reports disagree we say so. A person reviews every readout before it is sent or published.
+See <a href="../method/">how this is built</a>.</p></footer>
+</main></body></html>
